@@ -30,22 +30,6 @@ def init_board():#[[.,.,.],[.,.,.],[.,.,.]]
 def get_move(board, player):
     col = None
     row = None
-<<<<<<< HEAD
-    
-    while col == None or row == None or col > 3 or row > 3:
-        try:
-            col = int(input(f"Player {player} choose column (1-3): "))
-            row = int(input(f"Player {player} choose row (1-3): "))
-            if col > 3 or row > 3:
-                raise Exception("Try smaller numbers")
-        except ValueError:
-            print("It should be digit or try smaller numbers")
-        except Exception as arg:
-            print(arg)
-              
-    return row-1, col-1
-
-=======
     while col == None or row == None or col > 3:
         while True:
             row = input(f"Player {players_names[player]} choose row (A-C): " ).upper()
@@ -62,7 +46,6 @@ def get_move(board, player):
             except ValueError:
                 print("Please write a digit!")
     return row, col-1
->>>>>>> observe
 
 def loading_game():
     procent = 0
@@ -115,8 +98,6 @@ def enemy_two_cell(board,player):
 def get_ai_move(board, player):
     """Returns the coordinates of a valid move for Ai on board."""
     row, col = 0, 0
-<<<<<<< HEAD
-=======
     if board[1][1] == ".":
         row = "B"
         col = 1
@@ -132,7 +113,6 @@ def get_ai_move(board, player):
                 continue
             else:
                 break
->>>>>>> observe
     return row, col
 
 
@@ -160,7 +140,6 @@ def print_board(board):
     """Prints a 3-by-3 board on the screen with borders."""
     print("   1   2   3")
     for i in range(3):
-<<<<<<< HEAD
         print(f"{abc[i]}  {board[i][0]} | {board[i][1]} | {board[i][2]} \n  ---+---+---")
     pass
 
@@ -171,7 +150,6 @@ def print_result(winner):
 
 
 def tictactoe_game(mode='HUMAN-HUMAN'):
-=======
         print(str(abc[i]),end="  ")
         if i < 2:
             #print(colors.red + str(abc[i]) + colors.reset + "  " + str(board[i][0]) + " | " + str(board[i][1]) + " | " + str(board[i][2]) + "\n"
@@ -215,7 +193,6 @@ def print_result(player,board,board_is_full,players_names,winner):
 def human_human(registration_list):
     global step_count
     players_names = {1:colors.red + registration_list[0] + colors.reset,2:colors.blue + registration_list[1] + colors.reset}
->>>>>>> observe
     board = init_board()
     player = 1
     # use get_move(), mark(), has_won(), is_full(), and print_board() to create game logic
@@ -223,20 +200,16 @@ def human_human(registration_list):
         print_board(board)
         row, col = get_move(board, player)
         board = mark(board, player, row, col)
-<<<<<<< HEAD
-=======
         if step_count > 4:
             winner = has_won(board,player)
             if winner or step_count == 9:
                 print_result(player,board,is_full(),players_names,winner)
                 break
->>>>>>> observe
         if player == 1:
             player = 2
         else:
             player = 1
 
-<<<<<<< HEAD
     winner = 0
     print_result(winner)
     
@@ -250,7 +223,6 @@ def main_menu():
             tictactoe_game('HUMAN-AI')
             break
 
-=======
 def registration_player(mode):
     first_second = {1: colors.red+ 'first' +colors.white, 2: colors.blue+ 'second' +colors.white}
     registration_list = []
@@ -348,7 +320,6 @@ def main_menu():
     else:
         tictactoe_game(int(userinput),'HUMAN-HUMAN')
             
->>>>>>> observe
 if __name__ == '__main__':
     main_menu()
     while True:

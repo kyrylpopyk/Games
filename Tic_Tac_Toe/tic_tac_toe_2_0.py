@@ -48,7 +48,7 @@ class Game(Global):
 def main():
     game = Game()
     game.clear_screen()
-    #game.loading_game()
+    game.loading_game()
     user_input = ""
     game.clear_screen()
     while user_input != "1" and user_input != "2" and user_input != "3":
